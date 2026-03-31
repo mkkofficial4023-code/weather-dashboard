@@ -1,0 +1,32 @@
+<div class="saved-container">
+  <h3>Saved Cities</h3>
+
+  <div class="city-grid">
+    <div 
+      class="city-card"
+      *ngFor="let city of cities"
+      [class.selected]="isSelected(city)"
+    >
+      <h4>{{ city.city }}</h4>
+
+      <div class="actions">
+
+        <div class="action-btn" (click)="refresh.emit(city)">
+          🔄
+          <span>Refresh</span>
+        </div>
+
+        <div class="action-btn remove" (click)="remove.emit(city)">
+          ❌
+          <span>Remove</span>
+        </div>
+
+        <div class="action-btn compare" (click)="compare.emit(city)">
+          ⚖️
+          <span>Compare</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

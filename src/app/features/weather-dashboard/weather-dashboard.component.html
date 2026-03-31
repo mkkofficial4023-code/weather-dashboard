@@ -1,0 +1,42 @@
+<div class="dashboard">
+
+  <h1 class="title">🌤 Weather Dashboard</h1>
+
+  <div class="search-row">
+    <app-city-search (citySearch)="onCitySearch($event)"></app-city-search>
+  </div>
+
+  <div class="grid-container">
+
+    <div class="card">
+      <app-weather-card
+        *ngIf="currentWeather"
+        [weather]="currentWeather"
+        (save)="onSaveCity($event)">
+      </app-weather-card>
+    </div>
+
+    <div class="card">
+      <app-saved-cities
+        [cities]="savedCities"
+        [selectedCities]="selectedCities"
+        (remove)="onRemoveCity($event)"
+        (refresh)="onRefreshCity($event)"
+        (compare)="onSelectForCompare($event)">
+      </app-saved-cities>
+    </div>
+
+    <div class="card">
+      <app-activity-log [logs]="logs"></app-activity-log>
+    </div>
+
+    <div class="card">
+      <app-comparison
+        *ngIf="selectedCities.length === 2"
+        [city1]="selectedCities[0]"
+        [city2]="selectedCities[1]">
+      </app-comparison>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="log-card">
+  <h3>Activity Log</h3>
+
+  <div class="log-list">
+    <div *ngFor="let log of logs" class="log-item">
+      <p>{{ log.message }}</p>
+      <small>{{ log.timestamp | date:'short' }}</small>
+    </div>
+  </div>
+</div>

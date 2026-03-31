@@ -1,0 +1,33 @@
+.weather-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+}
+
+.temp {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.details {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+button {
+  background: #00c853;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}

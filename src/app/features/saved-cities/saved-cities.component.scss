@@ -1,0 +1,67 @@
+.saved-container {
+  margin-top: 20px;
+  
+}
+
+.city-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.city-card {
+  width: 170px;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.city-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.city-card.selected {
+  border: 1px solid #4facfe;
+  box-shadow: 0 0 15px rgba(79, 172, 254, 0.6);
+}
+
+.city-card h4 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  transition: 0.3s;
+  font-size: 13px;
+}
+
+.action-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.action-btn.remove:hover {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.action-btn.compare:hover {
+  background: rgba(79, 172, 254, 0.4);
+}

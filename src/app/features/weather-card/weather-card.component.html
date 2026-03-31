@@ -1,0 +1,15 @@
+<div class="weather-card">
+  <h2>{{ weather.city }}</h2>
+
+  <img [src]="weather.icon" />
+
+  <div class="temp">{{ weather.temperature }}°C</div>
+  <p>{{ weather.condition }}</p>
+
+  <div class="details">
+    <span>💧 {{ weather.humidity }}</span>
+    <span>🌬 {{ weather.windSpeed }}</span>
+  </div>
+
+  <button (click)="save.emit(weather)">Save</button>
+</div>
