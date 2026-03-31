@@ -1,59 +1,155 @@
-# WeatherDashboard
+# 🌤 Weather Dashboard (Angular 19)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.23.
+## 📌 Project Overview
 
-## Development server
+This project is a Weather Dashboard built using Angular 19. It allows users to search for cities, view real-time weather data, save cities, compare weather conditions, and track activity logs.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🚀 Features
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+* Search city weather using OpenWeatherMap API
+* View temperature, humidity, wind speed, and conditions
+* Save up to 5 cities
+* Prevent duplicate city entries
+* Refresh weather data per city
+* Compare weather between two cities
+* Activity log with timestamps (stored in localStorage)
+* Responsive and modern dashboard UI
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Setup Instructions
 
-```bash
-ng generate component component-name
-```
+1. Clone the repository or download ZIP
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. Install dependencies:
 
-```bash
-ng generate --help
-```
+   ```bash
+   npm install
+   ```
 
-## Building
+3. Add your OpenWeatherMap API key:
 
-To build the project run:
+   * Open `weather.service.ts`
+   * Replace:
 
-```bash
-ng build
-```
+     ```ts
+     private apiKey = 'YOUR_API_KEY';
+     ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+4. Run the application:
 
-## Running unit tests
+   ```bash
+   ng serve
+   ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+5. Open browser:
 
-```bash
-ng test
-```
+   ```
+   http://localhost:4200
+   ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🧩 Component Structure
 
-```bash
-ng e2e
-```
+* **WeatherDashboardComponent (Parent)**
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+  * Handles main state and layout
 
-## Additional Resources
+* **CitySearchComponent**
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+  * Takes user input and emits search event
+
+* **WeatherCardComponent**
+
+  * Displays current weather data
+
+* **SavedCitiesComponent**
+
+  * Displays saved cities list with actions (refresh, remove, compare)
+
+* **ComparisonComponent**
+
+  * Compares two selected cities dynamically
+
+* **ActivityLogComponent**
+
+  * Shows user actions with timestamps
+
+---
+
+## 🔄 Parent-Child Communication
+
+* Used `@Input()` to pass data from parent to child components
+* Used `@Output()` and `EventEmitter` to send events from child to parent
+
+### Example:
+
+* CitySearchComponent emits city name → Parent fetches data
+* SavedCitiesComponent emits actions → Parent updates state
+* Parent passes selected cities → ComparisonComponent displays result
+
+---
+
+## ⚖️ Comparison Logic
+
+Comparison is dynamically calculated using getters:
+
+* Higher temperature
+* Higher humidity
+* Faster wind speed
+* Dynamic summary (e.g., "Delhi is hotter than Mumbai")
+
+---
+
+## 🧠 Assumptions Made
+
+* Maximum 5 cities allowed for simplicity
+* API response is mapped to a custom model
+* Comparison works only when 2 cities are selected
+* LocalStorage is used for activity logs
+* UI optimized for desktop view
+
+---
+
+## ❗ Edge Cases Handled
+
+* Invalid city name
+* Duplicate city prevention
+* Max city limit reached
+* Removing city used in comparison
+* Independent refresh per city
+
+---
+
+## 🎨 UI Features
+
+* Modern dashboard layout
+* Glassmorphism design
+* Responsive grid system
+* Hover effects and interactions
+
+---
+
+## 📦 Technologies Used
+
+* Angular 19 (Standalone Components)
+* TypeScript
+* SCSS
+* OpenWeatherMap API
+
+---
+
+## 📌 Author
+
+Manish Kumar
+
+---
+
+## 📅 Submission Date
+
+31 March 2026
+
+<img width="1877" height="843" alt="image" src="https://github.com/user-attachments/assets/1126595c-abb1-41eb-9b91-896a3050d140" />
